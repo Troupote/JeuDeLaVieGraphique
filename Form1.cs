@@ -1,4 +1,5 @@
-﻿using JeuDeLaVieGraphique.Controls;
+﻿using JeuDeLaVieConsole;
+using JeuDeLaVieGraphique.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,13 +19,22 @@ namespace JeuDeLaVieGraphique
         public int n;
         public ZoneJeu zoneJeu;
         public Titre titre;
-        public Form1()
+        private Game game = new Game(4, 10);
+        private static readonly Timer Timer = new Timer();
+        private int generation;
+        public Form1(int n = 40)
         {
             InitializeComponent();
 
-            n = 40;
+            this.n = n;
             zoneJeu = new ZoneJeu(n);
             titre = new Titre();
+            generation = 0;
+
+            Timer.Interval = 200;
+            Timer.Start();
+            Timer.Tick += UpdateGrid;
+            game.RunGameConsole();
 
         }
 
@@ -37,7 +47,7 @@ namespace JeuDeLaVieGraphique
             int centerX = (this.ClientSize.Width - zoneJeu.Width) / 2;
             int centerY = (this.ClientSize.Height - zoneJeu.Height) / 2;
 
-            titre.Location = new Point(centerX, centerY - titre.Height - 10); 
+            titre.Location = new Point(centerX, centerY - titre.Height - 10);
 
             zoneJeu.Location = new Point(centerX, centerY);
 
@@ -47,6 +57,21 @@ namespace JeuDeLaVieGraphique
 
             this.Controls.Add(zoneJeu);
             this.Controls.Add(titre);
+
+        }
+
+        private void UpdateGrid(object sender, EventArgs e)
+        {
+
+            // Mise à jour de la grille du jeu
+
+            // Incrémentation de 1 de la variable generation
+
+            // Mise à jour du label avec la valeur contenue dans generation
+
+            // Mise à jour de la fenêtre graphique
+
+
 
         }
     }

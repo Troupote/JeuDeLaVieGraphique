@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 
 namespace JeuDeLaVieConsole
 {
@@ -12,6 +12,7 @@ namespace JeuDeLaVieConsole
         private int iter;
         public Grid grid;
         List<Coords> AliveCellsCoords;
+
 
         public Game(int nbCells, int nbIterations)
         {
@@ -23,12 +24,12 @@ namespace JeuDeLaVieConsole
 
         public void RunGameConsole()
         {
-            grid.DisplayGrid();
+            //grid.DisplayGrid();
             for (int i = 0; i < iter; i++)
             {
-                grid.UpdateGrid();
-                grid.DisplayGrid();
-                Thread.Sleep(1000);
+                //grid.UpdateGrid();
+                //grid.DisplayGrid();
+                //Thread.Sleep(1000);
             }
 
         }

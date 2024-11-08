@@ -27,8 +27,11 @@ namespace JeuDeLaVieConsole
 
         public Coords (int X, int Y)
         {
-            x = X;
-            y = Y;
+            //oui je sais qu'on doit normalement utiliser l'accesseur
+            //mais a priori là je ne peux pas car ma version de C# est trop vieille
+            //et je ne peux pas la mettre à jour car dotnet est juste buggé
+            _x = X;
+            _y = Y;
         }
 
         public override string ToString()
